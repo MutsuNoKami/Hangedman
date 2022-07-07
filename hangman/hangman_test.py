@@ -28,6 +28,7 @@ class Hangman:
         '''
         
         '''
+        letter = letter.lower()
         if letter in self.word:
             print("correct")
             
@@ -40,7 +41,7 @@ class Hangman:
         else:
             self.num_lives -= 1
                 
-        self.word_guessed += letter        
+        self.word_guessed.append[letter]
         letter = self.letter
         pass
 
@@ -68,15 +69,15 @@ def play_game(word_list):
     game = Hangman(word_list, num_lives=5)
    
     while True:
-        game.ask_letter()
+        if game.num_lives > 0 and game.num_letters > 0:
+            game.ask_letter()
+            if "_" not in game.word_guessed:
+                print("Congratulations, you won!")
+                exit()
+            elif game.num_lives <= 0:
+                print (f"You ran out of lives. The word was {game.word}")
+            break
         
-        if "_" not in game.word_guessed:
-            print("Congratulations, you won!")
-            exit()
-        elif game.num_lives <= 0:
-            print (f"You ran out of lives. The word was {game.word}")
-        break
-    
 
     pass
 
